@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 图片生成器</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold text-center mb-8">🐱🍉 AI 图片生成器</h1>
+    
+    <!-- 演示图片 -->
+    <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-4 mb-8">
+      <h2 class="text-xl font-semibold mb-4">示例图片</h2>
+      <img src="/images/cat_watermelon.png" alt="橙色小猫和西瓜" class="w-full rounded">
+      <p class="text-gray-500 mt-2 text-center">一只可爱的橙色小猫坐在西瓜旁边</p>
+    </div>
+    
+    <!-- API 使用说明 -->
+    <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">API 使用说明</h2>
+      <pre class="bg-gray-800 text-green-400 p-4 rounded overflow-x-auto">
+POST /api/generate-image
+{
+  "prompt": "你的描述"
+}</pre>
+      
+      <h3 class="text-lg font-semibold mt-4 mb-2">前端调用示例</h3>
+      <pre class="bg-gray-800 text-blue-400 p-4 rounded overflow-x-auto">
+const res = await fetch('/api/generate-image', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ prompt: '一只橙色小猫' })
+});
+const &#123; image &#125; = await res.json();
+// image 是 base64 格式</pre>
+    </div>
+  </div>
+</body>
+</html>
